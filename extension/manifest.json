@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "Titanium İndirme Hızlandırıcı",
+  "short_name": "Titanium",
+  "version": "1.0.0",
+  "description": "Yüksek başarımlı indirme yöneticisi: medya koklayıcı, HLS/DASH desteği ve Rust çekirdek entegrasyonu.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "nativeMessaging",
+    "webRequest",
+    "cookies",
+    "storage",
+    "contextMenus",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Titanium İndirme",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content/bridge.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content/mse_hook.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsk/+Zot3vGOzNGhxvPfDeG9S5MLX/IxFb/GqI4lN3Zg2xidQOPJauGw1yDoEl8PGMZqFomG2cbWZ2O15ilLJciN3WyfQpouhLqleVA3PK+O5Ktwp+2lfiVlakeZx/kYV6IjBr8t/PhDQC+NZ9m5o9SwdGufxXf5sdzuamEVsi8NpgicoR5O8uq58d/7MpYczy/K9pTkhOuvmMb6919cswRX1qL/LkbJybYhpzvGvMqOmE07IxtbMPBv5Kvb5rYYe0qEfMoc+xptnfS4FnpGQLwhQItqvdkGfdXfSJk8d9yL9hvM0ddu9B2+Y6SBf9zCSsM3zW5e9QXTtngindUbtJwIDAQAB"
+}

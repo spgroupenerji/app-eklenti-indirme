@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <div class="marka">
+      <img src="../icons/32.png" alt="" id="logo" />
+      <span>Titanium İndirme</span>
+    </div>
+    <div class="durum" id="cekirdekDurum">
+      <span class="nokta" id="durumNokta"></span>
+      <span id="durumMetin">Bağlanıyor…</span>
+    </div>
+  </header>
+
+  <section class="bolum">
+    <div class="bolum-baslik">
+      <h2>Aktif İndirmeler</h2>
+      <label class="eslik">
+        Eşlik
+        <select id="eslikSec">
+          <option value="4">4</option>
+          <option value="8">8</option>
+          <option value="16" selected>16</option>
+          <option value="24">24</option>
+          <option value="32">32</option>
+        </select>
+      </label>
+    </div>
+    <div id="isListesi" class="liste"></div>
+    <div id="isBos" class="bos">Henüz indirme yok. Sayfalardaki medyayı koklayın veya bağlam menüsünü kullanın.</div>
+  </section>
+
+  <section class="bolum">
+    <div class="bolum-baslik">
+      <h2>Yakalanan Medya</h2>
+      <button id="yakalananTemizle" class="metin-buton" title="Listeyi temizle">Temizle</button>
+    </div>
+    <div id="yakalananListesi" class="liste"></div>
+    <div id="yakalananBos" class="bos">Video/ses içeren sayfalar açtıkça burada görünür.</div>
+  </section>
+
+  <template id="isSablon">
+    <div class="is-karti">
+      <div class="is-ust">
+        <span class="is-ad"></span>
+        <span class="is-durum"></span>
+      </div>
+      <div class="cerceve"><div class="dolgu"></div></div>
+      <div class="is-alt">
+        <span class="is-detay"></span>
+        <span class="is-butonlar">
+          <button class="k-duraklat" title="Duraklat">⏸</button>
+          <button class="k-devam" title="Devam">▶</button>
+          <button class="k-iptal" title="İptal">✖</button>
+          <button class="k-sil" title="Kaydı sil">✕</button>
+        </span>
+      </div>
+    </div>
+  </template>
+
+  <template id="yakalananSablon">
+    <div class="yak-karti">
+      <div class="yak-bilgi">
+        <span class="yak-tur"></span>
+        <span class="yak-ad"></span>
+        <span class="yak-meta"></span>
+      </div>
+      <button class="yak-indir">İndir</button>
+    </div>
+  </template>
+
+  <script src="popup.js"></script>
+</body>
+</html>

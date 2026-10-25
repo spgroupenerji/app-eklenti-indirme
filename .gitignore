@@ -1,0 +1,49 @@
+# ============================================================
+# Titanium İndirme Hızlandırıcı — Git izleme dışı bırakma kuralları
+# İzlenen kaynaklar: core/src, core/Cargo.toml, core/Cargo.lock,
+# extension/, scripts/, tests/, docs/, README.md
+# ============================================================
+
+# --- Yerel araç ve kod grafiği dosyaları ---------------------
+# Depoya ait değil; her geliştirici makinesinde yeniden üretilir.
+AGENTS.md
+CLAUDE.md
+.claude/
+.codegraph/
+.gitnexus/
+
+# --- Rust derleme çıktıları ---------------------------------
+# core/ altındaki cargo hedef dizini ve olası kök hedef dizini.
+core/target/
+/target/
+
+# --- Sürüm paketleri ----------------------------------------
+# scripts/release_uret.ps1 ile üretilen zip ve açılmış paketler.
+/release/
+
+# --- Üretilen test sabitleri --------------------------------
+# tests/fixture_uret.py tarafından üretilir; kaynak kod değildir.
+/tests/fixture/
+
+# --- Gizli anahtar ve türetilmiş uzantı kimliği -------------
+# scripts/make_key.py üretir; asla depoya girmemeli.
+host/titan_key.pem
+
+# --- Gizli ortam değerleri ----------------------------------
+.env
+.env.*
+
+# --- Python -------------------------------------------------
+__pycache__/
+*.py[cod]
+
+# --- Editör ve işletim sistemi ------------------------------
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store
+
+# --- Geçici dosyalar ---------------------------------------
+*.log
+*.tmp

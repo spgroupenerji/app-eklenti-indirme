@@ -1,0 +1,32 @@
+[package]
+name = "titan-downloader-core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aes = "0.9.3"
+blake3 = "1.8.7"
+cbc = "0.2.1"
+dirs = "7.0.0"
+futures-util = "0.3.34"
+m3u8-rs = "6.0.1"
+quick-xml = "0.42.0"
+reqwest = { version = "0.13.5", features = ["stream", "gzip"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+thiserror = "2.0.21"
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "macros", "time", "io-util", "process", "sync", "fs"] }
+url = "2.5.8"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = ["Win32_Storage_FileSystem", "Win32_System_IO", "Win32_System_Ioctl", "Win32_Foundation"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
